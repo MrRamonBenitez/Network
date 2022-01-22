@@ -6,6 +6,7 @@ public class MainServer {
         System.out.println("Server started");
         int port = 8083;
 
+        while (true) {
             ServerSocket serverSocket = new ServerSocket(port);
             Socket clientSocket = serverSocket.accept();
             PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
@@ -16,6 +17,6 @@ public class MainServer {
 
             out.println(String.format("Hi %s, your port is %d", name, clientSocket.getPort()));
             serverSocket.close();
-
+        }
     }
 }
